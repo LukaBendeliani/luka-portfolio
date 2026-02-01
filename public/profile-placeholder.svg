@@ -1,0 +1,6 @@
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="500" height="500" fill="#1A1A1A"/>
+  <circle cx="250" cy="200" r="80" fill="#00D4FF" opacity="0.2"/>
+  <path d="M250 280C200 280 160 320 160 370V400H340V370C340 320 300 280 250 280Z" fill="#00D4FF" opacity="0.2"/>
+  <text x="250" y="460" font-family="Inter, sans-serif" font-size="16" fill="#B0B0B0" text-anchor="middle">Profile Photo Placeholder</text>
+</svg>
