@@ -213,7 +213,7 @@ export const portfolioData: PortfolioData = {
       id: "resume-analyzer",
       title: "Resume Analyzer",
       description: "AI-powered tool that analyzes resumes for ATS compatibility, provides scoring, and suggests improvements using Gemini AI.",
-      link: "https://github.com/LukaBendeliani/resume-analyzer",
+      link: "https://resume-analyzer-peach-ten.vercel.app/",
       technologies: ["Next.js", "TypeScript", "Gemini AI", "Tailwind CSS"]
     },
     {
