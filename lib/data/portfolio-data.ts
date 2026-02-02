@@ -51,12 +51,21 @@ export interface EducationEntry {
   endYear: number;
 }
 
+export interface Project {
+  id: string;
+  title: string;
+  description: string;
+  link: string;
+  technologies: string[];
+}
+
 export interface PortfolioData {
   personal: PersonalInfo;
   overview: Overview;
   experiences: WorkExperience[];
   skills: TechnicalSkills;
   education: EducationEntry[];
+  projects: Project[];
   additionalSkills: string[];
 }
 
@@ -196,6 +205,30 @@ export const portfolioData: PortfolioData = {
       field: "Theoretical Physics",
       startYear: 2018,
       endYear: 2022
+    }
+  ],
+
+  projects: [
+    {
+      id: "resume-analyzer",
+      title: "Resume Analyzer",
+      description: "AI-powered tool that analyzes resumes for ATS compatibility, provides scoring, and suggests improvements using Gemini AI.",
+      link: "https://github.com/LukaBendeliani/resume-analyzer",
+      technologies: ["Next.js", "TypeScript", "Gemini AI", "Tailwind CSS"]
+    },
+    {
+      id: "metropol",
+      title: "Metropol",
+      description: "A premium real estate platform for one of the leading development companies in Georgia.",
+      link: "https://www.metropol.ge/",
+      technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"]
+    },
+    {
+      id: "materia",
+      title: "Materia",
+      description: "Digital platform for Materia, a contemporary Georgian fashion house.",
+      link: "https://materia.ge/ka",
+      technologies: ["Next.js", "React", "TypeScript", "E-commerce"]
     }
   ],
 

@@ -2,6 +2,7 @@ import Hero from '@/components/brutalist/Hero';
 import LogoWall from '@/components/brutalist/LogoWall';
 import Overview from '@/components/brutalist/Overview';
 import Experience from '@/components/brutalist/Experience';
+import Projects from '@/components/brutalist/Projects';
 import Skills from '@/components/brutalist/Skills';
 import Education from '@/components/brutalist/Education';
 import Contact from '@/components/brutalist/Contact';
@@ -23,6 +24,7 @@ export default function Home() {
           <Hero />
           {/* <LogoWall /> */}
           <Overview />
+          <Projects />
           <Experience />
           <Skills />
           <Education />
