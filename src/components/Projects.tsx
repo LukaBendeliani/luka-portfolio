@@ -28,6 +28,14 @@ const projects = [
         tech: ["React", "Next.js", "E-commerce", "CMS"],
         link: "https://materia.ge/ka",
     },
+    {
+        id: "04",
+        title: "PROMPT BUILDER",
+        description:
+            "An intelligent prompt engineering tool that helps users craft, refine, and optimize prompts for AI models. Streamlined interface for building structured, high-quality prompts.",
+        tech: ["Next.js", "TypeScript", "Tailwind", "AI"],
+        link: "https://prompt-builder-xi.vercel.app/",
+    },
 ];
 
 export default function Projects() {
