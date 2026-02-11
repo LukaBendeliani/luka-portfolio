@@ -53,12 +53,53 @@ export default function Hero() {
                     &#47;&#47; SOFTWARE ENGINEER PORTFOLIO
                 </motion.div>
 
-                <h1
-                    className="text-4xl sm:text-5xl md:text-7xl font-bold uppercase tracking-[-0.05em] leading-tight cursor-default"
-                    style={{ color: "#e2e8f0" }}
-                >
-                    <span className="cursor-blink">{displayedTitle}</span>
-                </h1>
+                <div className="relative group inline-block">
+                    <h1
+                        className="text-4xl sm:text-5xl md:text-7xl font-bold uppercase tracking-[-0.05em] leading-tight cursor-default"
+                        style={{ color: "#e2e8f0" }}
+                    >
+                        <span className="cursor-blink">{displayedTitle}</span>
+                    </h1>
+                    <h1
+                        className="absolute inset-0 text-4xl sm:text-5xl md:text-7xl font-bold uppercase tracking-[-0.05em] leading-tight pointer-events-none opacity-0 group-hover:opacity-100"
+                        style={{ color: "#22d3ee", animation: "none" }}
+                        aria-hidden="true"
+                        onAnimationEnd={() => { }}
+                        ref={(el) => {
+                            if (el) {
+                                const parent = el.parentElement;
+                                parent?.addEventListener("mouseenter", () => {
+                                    el.style.animation = "glitch1 0.3s ease-in-out";
+                                });
+                                parent?.addEventListener("mouseleave", () => {
+                                    el.style.animation = "none";
+                                    el.style.opacity = "0";
+                                });
+                            }
+                        }}
+                    >
+                        {fullTitle}
+                    </h1>
+                    <h1
+                        className="absolute inset-0 text-4xl sm:text-5xl md:text-7xl font-bold uppercase tracking-[-0.05em] leading-tight pointer-events-none opacity-0 group-hover:opacity-100"
+                        style={{ color: "#f472b6", animation: "none" }}
+                        aria-hidden="true"
+                        ref={(el) => {
+                            if (el) {
+                                const parent = el.parentElement;
+                                parent?.addEventListener("mouseenter", () => {
+                                    el.style.animation = "glitch2 0.3s ease-in-out";
+                                });
+                                parent?.addEventListener("mouseleave", () => {
+                                    el.style.animation = "none";
+                                    el.style.opacity = "0";
+                                });
+                            }
+                        }}
+                    >
+                        {fullTitle}
+                    </h1>
+                </div>
 
                 {showSubtitle && (
                     <motion.div
