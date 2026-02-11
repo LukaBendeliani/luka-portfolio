@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const fullTitle = "LUKA BENDELIANI";
@@ -16,7 +16,6 @@ const stats = [
 export default function Hero() {
     const [displayedTitle, setDisplayedTitle] = useState("");
     const [showSubtitle, setShowSubtitle] = useState(false);
-    const [isHovering, setIsHovering] = useState(false);
 
     useEffect(() => {
         let i = 0;
@@ -31,9 +30,6 @@ export default function Hero() {
         }, 80);
         return () => clearInterval(interval);
     }, []);
-
-    const handleGlitchEnter = useCallback(() => setIsHovering(true), []);
-    const handleGlitchLeave = useCallback(() => setIsHovering(false), []);
 
     return (
         <section
@@ -57,34 +53,12 @@ export default function Hero() {
                     &#47;&#47; SOFTWARE ENGINEER PORTFOLIO
                 </motion.div>
 
-                <div
-                    className="glitch-container"
-                    onMouseEnter={handleGlitchEnter}
-                    onMouseLeave={handleGlitchLeave}
+                <h1
+                    className="text-4xl sm:text-5xl md:text-7xl font-bold uppercase tracking-[-0.05em] leading-tight cursor-default"
+                    style={{ color: "#e2e8f0" }}
                 >
-                    <h1
-                        className="text-4xl sm:text-5xl md:text-7xl font-bold uppercase tracking-[-0.05em] leading-tight cursor-default"
-                        style={{ color: "#e2e8f0" }}
-                    >
-                        <span className="cursor-blink">{displayedTitle}</span>
-                    </h1>
-                    {isHovering && (
-                        <>
-                            <h1
-                                className="glitch-layer-1 text-4xl sm:text-5xl md:text-7xl font-bold uppercase tracking-[-0.05em] leading-tight pointer-events-none"
-                                aria-hidden="true"
-                            >
-                                {fullTitle}
-                            </h1>
-                            <h1
-                                className="glitch-layer-2 text-4xl sm:text-5xl md:text-7xl font-bold uppercase tracking-[-0.05em] leading-tight pointer-events-none"
-                                aria-hidden="true"
-                            >
-                                {fullTitle}
-                            </h1>
-                        </>
-                    )}
-                </div>
+                    <span className="cursor-blink">{displayedTitle}</span>
+                </h1>
 
                 {showSubtitle && (
                     <motion.div
