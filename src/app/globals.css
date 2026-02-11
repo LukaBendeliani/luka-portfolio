@@ -42,16 +42,12 @@ body {
     linear-gradient(to bottom, var(--color-border-muted) 1px, transparent 1px);
   background-size: 60px 60px;
   opacity: 0.10;
-  mask-image: radial-gradient(
-    circle 500px at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    black 0%,
-    transparent 100%
-  );
-  -webkit-mask-image: radial-gradient(
-    circle 500px at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    black 0%,
-    transparent 100%
-  );
+  mask-image: radial-gradient(circle 500px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      black 0%,
+      transparent 100%);
+  -webkit-mask-image: radial-gradient(circle 500px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      black 0%,
+      transparent 100%);
 }
 
 /* ── Noise Texture ───────────────────────────────── */
@@ -72,20 +68,20 @@ body {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: radial-gradient(
-    circle 350px at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(34, 211, 238, 0.04) 0%,
-    transparent 100%
-  );
+  background: radial-gradient(circle 350px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(34, 211, 238, 0.04) 0%,
+      transparent 100%);
 }
 
 /* ── Scrollbar ───────────────────────────────────── */
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--color-bg-primary);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--color-accent-cyan);
   border-radius: 3px;
@@ -93,8 +89,15 @@ body {
 
 /* ── Typewriter Cursor Blink ─────────────────────── */
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 .cursor-blink::after {
@@ -106,43 +109,94 @@ body {
 
 /* ── Glitch Effect ───────────────────────────────── */
 @keyframes glitch1 {
-  0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
-  20% { clip-path: inset(20% 0 60% 0); transform: translate(-3px, -1px); }
-  40% { clip-path: inset(60% 0 10% 0); transform: translate(3px, 1px); }
-  60% { clip-path: inset(40% 0 30% 0); transform: translate(-2px, 2px); }
-  80% { clip-path: inset(10% 0 70% 0); transform: translate(2px, -2px); }
+
+  0%,
+  100% {
+    clip-path: inset(0 0 0 0);
+    transform: translate(0);
+  }
+
+  20% {
+    clip-path: inset(20% 0 60% 0);
+    transform: translate(-3px, -1px);
+  }
+
+  40% {
+    clip-path: inset(60% 0 10% 0);
+    transform: translate(3px, 1px);
+  }
+
+  60% {
+    clip-path: inset(40% 0 30% 0);
+    transform: translate(-2px, 2px);
+  }
+
+  80% {
+    clip-path: inset(10% 0 70% 0);
+    transform: translate(2px, -2px);
+  }
 }
 
 @keyframes glitch2 {
-  0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
-  20% { clip-path: inset(70% 0 10% 0); transform: translate(3px, 1px); }
-  40% { clip-path: inset(10% 0 60% 0); transform: translate(-3px, -1px); }
-  60% { clip-path: inset(50% 0 20% 0); transform: translate(2px, -2px); }
-  80% { clip-path: inset(30% 0 50% 0); transform: translate(-2px, 2px); }
+
+  0%,
+  100% {
+    clip-path: inset(0 0 0 0);
+    transform: translate(0);
+  }
+
+  20% {
+    clip-path: inset(70% 0 10% 0);
+    transform: translate(3px, 1px);
+  }
+
+  40% {
+    clip-path: inset(10% 0 60% 0);
+    transform: translate(-3px, -1px);
+  }
+
+  60% {
+    clip-path: inset(50% 0 20% 0);
+    transform: translate(2px, -2px);
+  }
+
+  80% {
+    clip-path: inset(30% 0 50% 0);
+    transform: translate(-2px, 2px);
+  }
 }
 
-.glitch-container {
+.glitch-wrapper {
   position: relative;
+  display: inline-block;
 }
-.glitch-container:hover .glitch-layer-1 {
-  animation: glitch1 0.3s ease-in-out;
-  color: var(--color-accent-cyan);
+
+.glitch-layer {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
 }
-.glitch-container:hover .glitch-layer-2 {
-  animation: glitch2 0.3s ease-in-out;
-  color: var(--color-accent-magenta);
-  position: absolute;
-  top: 0;
-  left: 0;
+
+.glitch-wrapper:hover .glitch-layer-1 {
+  opacity: 0.8;
+  animation: glitch1 0.3s ease-in-out infinite;
+}
+
+.glitch-wrapper:hover .glitch-layer-2 {
+  opacity: 0.8;
+  animation: glitch2 0.3s ease-in-out infinite;
 }
 
 /* ── Data Stream Background ──────────────────────── */
 @keyframes dataStream {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 0% 100%; }
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 0% 100%;
+  }
 }
 
 .data-stream {
@@ -150,20 +204,23 @@ body {
   inset: 0;
   pointer-events: none;
   opacity: 0.04;
-  background-image: repeating-linear-gradient(
-    0deg,
-    var(--color-accent-cyan) 0px,
-    transparent 1px,
-    transparent 3px
-  );
+  background-image: repeating-linear-gradient(0deg,
+      var(--color-accent-cyan) 0px,
+      transparent 1px,
+      transparent 3px);
   background-size: 100% 4px;
   animation: dataStream 20s linear infinite;
 }
 
 /* ── Marquee ─────────────────────────────────────── */
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .marquee-track {
@@ -171,21 +228,25 @@ body {
   width: max-content;
   animation: marquee 30s linear infinite;
 }
+
 .marquee-track:hover {
   animation-play-state: paused;
 }
 
 /* ── Neon Glow Button ────────────────────────────── */
 @keyframes neonPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 10px rgba(244, 114, 182, 0.4),
-                0 0 30px rgba(244, 114, 182, 0.2),
-                0 0 60px rgba(244, 114, 182, 0.1);
+      0 0 30px rgba(244, 114, 182, 0.2),
+      0 0 60px rgba(244, 114, 182, 0.1);
   }
+
   50% {
     box-shadow: 0 0 15px rgba(244, 114, 182, 0.6),
-                0 0 40px rgba(244, 114, 182, 0.3),
-                0 0 80px rgba(244, 114, 182, 0.15);
+      0 0 40px rgba(244, 114, 182, 0.3),
+      0 0 80px rgba(244, 114, 182, 0.15);
   }
 }
 
@@ -210,7 +271,7 @@ body {
   border-color: var(--color-accent-magenta);
   color: var(--color-accent-magenta);
   box-shadow: 0 0 15px rgba(244, 114, 182, 0.4),
-              0 0 30px rgba(244, 114, 182, 0.2);
+    0 0 30px rgba(244, 114, 182, 0.2);
 }
 
 .neon-btn-primary {
@@ -219,12 +280,13 @@ body {
   color: var(--color-bg-primary);
   animation: neonPulse 2s ease-in-out infinite;
 }
+
 .neon-btn-primary:hover {
   background: var(--color-accent-cyan);
   border-color: var(--color-accent-cyan);
   color: var(--color-bg-primary);
   box-shadow: 0 0 20px rgba(34, 211, 238, 0.5),
-              0 0 40px rgba(34, 211, 238, 0.25);
+    0 0 40px rgba(34, 211, 238, 0.25);
 }
 
 /* ── Terminal Input ──────────────────────────────── */
@@ -239,10 +301,12 @@ body {
   outline: none;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
+
 .terminal-input::placeholder {
   color: var(--color-text-secondary);
   opacity: 0.5;
 }
+
 .terminal-input:focus {
   border-color: var(--color-accent-cyan);
   box-shadow: 0 0 10px rgba(34, 211, 238, 0.15);
@@ -256,6 +320,7 @@ body {
   color: var(--color-accent-cyan);
   margin-bottom: 0.5rem;
 }
+
 .section-title {
   font-size: clamp(1.5rem, 3vw, 2.25rem);
   font-weight: 700;
@@ -271,6 +336,7 @@ body {
   transition: all 0.3s ease;
   color: var(--color-text-secondary);
 }
+
 .social-icon:hover {
   filter: grayscale(0%) brightness(1);
   color: var(--color-accent-cyan);
