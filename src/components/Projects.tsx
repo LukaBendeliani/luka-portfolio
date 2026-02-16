@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import GlowCard from "@/components/GlowCard";
 
 const projects = [
     {
@@ -67,8 +68,9 @@ export default function Projects() {
 
                 <div className="grid gap-6">
                     {projects.map((project, i) => (
-                        <motion.a
+                        <GlowCard
                             key={project.id}
+                            as={motion.a}
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -76,21 +78,6 @@ export default function Projects() {
                             animate={isInView ? { opacity: 1, y: 0 } : {}}
                             transition={{ duration: 0.5, delay: 0.2 + i * 0.15 }}
                             className="block p-6 md:p-8 transition-all duration-300 group"
-                            style={{
-                                background: "rgba(15, 23, 42, 0.6)",
-                                border: "1px solid #1e293b",
-                            }}
-                            onMouseEnter={(e) => {
-                                e.currentTarget.style.borderColor = "#22d3ee";
-                                e.currentTarget.style.boxShadow =
-                                    "0 0 30px rgba(34,211,238,0.08)";
-                                e.currentTarget.style.transform = "translateY(-2px)";
-                            }}
-                            onMouseLeave={(e) => {
-                                e.currentTarget.style.borderColor = "#1e293b";
-                                e.currentTarget.style.boxShadow = "none";
-                                e.currentTarget.style.transform = "translateY(0)";
-                            }}
                         >
                             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                                 <div className="flex-1">
@@ -137,7 +124,7 @@ export default function Projects() {
                                     OPEN PROJECT →
                                 </div>
                             </div>
-                        </motion.a>
+                        </GlowCard>
                     ))}
                 </div>
             </div>

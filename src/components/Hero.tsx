@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useCallback, useState } from "react";
 import { motion } from "framer-motion";
 
 const fullTitle = "LUKA BENDELIANI";
@@ -16,6 +16,7 @@ const stats = [
 export default function Hero() {
     const [displayedTitle, setDisplayedTitle] = useState("");
     const [showSubtitle, setShowSubtitle] = useState(false);
+    const glitchRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         let i = 0;
@@ -31,12 +32,22 @@ export default function Hero() {
         return () => clearInterval(interval);
     }, []);
 
+    const handleMouseEnter = useCallback(() => {
+        const el = glitchRef.current;
+        if (el && !el.classList.contains("glitching")) {
+            el.classList.add("glitching");
+        }
+    }, []);
+
+    const handleAnimationEnd = useCallback(() => {
+        glitchRef.current?.classList.remove("glitching");
+    }, []);
+
     return (
         <section
             id="hero"
             className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden"
         >
-            <div className="data-stream" />
 
             <motion.div
                 initial={{ opacity: 0 }}
@@ -53,7 +64,12 @@ export default function Hero() {
                     &#47;&#47; SOFTWARE ENGINEER PORTFOLIO
                 </motion.div>
 
-                <div className="glitch-wrapper">
+                <div
+                    ref={glitchRef}
+                    className="glitch-wrapper"
+                    onMouseEnter={handleMouseEnter}
+                    onAnimationEnd={handleAnimationEnd}
+                >
                     <h1
                         className="text-4xl sm:text-5xl md:text-7xl font-bold uppercase tracking-[-0.05em] leading-tight cursor-default"
                         style={{ color: "#e2e8f0" }}

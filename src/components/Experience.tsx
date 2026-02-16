@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import GlowCard from "@/components/GlowCard";
 
 const experiences = [
     {
@@ -81,21 +82,8 @@ export default function Experience() {
                                     }}
                                 />
 
-                                <div
+                                <GlowCard
                                     className="p-6 transition-all duration-300"
-                                    style={{
-                                        background: "rgba(15, 23, 42, 0.4)",
-                                        border: "1px solid #1e293b",
-                                    }}
-                                    onMouseEnter={(e) => {
-                                        e.currentTarget.style.borderColor = "#22d3ee";
-                                        e.currentTarget.style.boxShadow =
-                                            "0 0 20px rgba(34,211,238,0.06)";
-                                    }}
-                                    onMouseLeave={(e) => {
-                                        e.currentTarget.style.borderColor = "#1e293b";
-                                        e.currentTarget.style.boxShadow = "none";
-                                    }}
                                 >
                                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
                                         <h3
@@ -123,7 +111,7 @@ export default function Experience() {
                                     >
                                         {exp.description}
                                     </p>
-                                </div>
+                                </GlowCard>
                             </motion.div>
                         ))}
                     </div>

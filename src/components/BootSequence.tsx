@@ -22,13 +22,13 @@ export default function BootSequence({
 
     useEffect(() => {
         if (visibleLines < bootLines.length) {
-            const timer = setTimeout(() => setVisibleLines((v) => v + 1), 300);
+            const timer = setTimeout(() => setVisibleLines((v) => v + 1), 450);
             return () => clearTimeout(timer);
         } else {
             const timer = setTimeout(() => {
                 setDone(true);
-                setTimeout(onComplete, 600);
-            }, 500);
+                setTimeout(onComplete, 900);
+            }, 750);
             return () => clearTimeout(timer);
         }
     }, [visibleLines, onComplete]);
@@ -39,7 +39,7 @@ export default function BootSequence({
                 <motion.div
                     initial={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.9 }}
                     className="fixed inset-0 z-[9999] flex items-center justify-center"
                     style={{ background: "#020617" }}
                 >

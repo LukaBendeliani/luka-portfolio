@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import GlowCard from "@/components/GlowCard";
 
 export default function Education() {
     const ref = useRef(null);
@@ -24,24 +25,12 @@ export default function Education() {
                     </h2>
                 </motion.div>
 
-                <motion.div
+                <GlowCard
+                    as={motion.div}
                     initial={{ opacity: 0, y: 30 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className="p-8 max-w-2xl transition-all duration-300"
-                    style={{
-                        background: "rgba(15, 23, 42, 0.5)",
-                        border: "1px solid #1e293b",
-                    }}
-                    onMouseEnter={(e) => {
-                        e.currentTarget.style.borderColor = "#22d3ee";
-                        e.currentTarget.style.boxShadow =
-                            "0 0 20px rgba(34,211,238,0.06)";
-                    }}
-                    onMouseLeave={(e) => {
-                        e.currentTarget.style.borderColor = "#1e293b";
-                        e.currentTarget.style.boxShadow = "none";
-                    }}
                 >
                     <div className="flex items-start justify-between mb-3">
                         <div>
@@ -73,7 +62,7 @@ export default function Education() {
                         and analytical problem-solving. Applied rigorous scientific
                         methodology to software engineering practice.
                     </p>
-                </motion.div>
+                </GlowCard>
             </div>
         </section>
     );

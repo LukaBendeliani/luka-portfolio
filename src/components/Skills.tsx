@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import GlowCard from "@/components/GlowCard";
 
 const skillCategories = [
     {
@@ -62,22 +63,13 @@ export default function Skills() {
 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {skillCategories.map((cat, i) => (
-                        <motion.div
+                        <GlowCard
                             key={cat.title}
+                            as={motion.div}
                             initial={{ opacity: 0, y: 30 }}
                             animate={isInView ? { opacity: 1, y: 0 } : {}}
                             transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
                             className="p-6 transition-all duration-300"
-                            style={{
-                                background: "rgba(15, 23, 42, 0.5)",
-                                border: "1px solid #1e293b",
-                            }}
-                            onMouseEnter={(e) => {
-                                e.currentTarget.style.borderColor = "#22d3ee";
-                            }}
-                            onMouseLeave={(e) => {
-                                e.currentTarget.style.borderColor = "#1e293b";
-                            }}
                         >
                             <div
                                 className="text-xs uppercase tracking-[0.15em] font-bold mb-4"
@@ -111,7 +103,7 @@ export default function Skills() {
                                     </span>
                                 ))}
                             </div>
-                        </motion.div>
+                        </GlowCard>
                     ))}
                 </div>
             </div>

@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import GlowCard from "@/components/GlowCard";
 
 const capabilities = [
     {
@@ -58,25 +59,13 @@ export default function About() {
 
                 <div className="grid md:grid-cols-3 gap-6">
                     {capabilities.map((cap, i) => (
-                        <motion.div
+                        <GlowCard
                             key={cap.title}
+                            as={motion.div}
                             initial={{ opacity: 0, y: 30 }}
                             animate={isInView ? { opacity: 1, y: 0 } : {}}
                             transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
                             className="p-6 transition-all duration-300 group"
-                            style={{
-                                background: "rgba(15, 23, 42, 0.6)",
-                                border: "1px solid #1e293b",
-                            }}
-                            onMouseEnter={(e) => {
-                                e.currentTarget.style.borderColor = "#22d3ee";
-                                e.currentTarget.style.boxShadow =
-                                    "0 0 20px rgba(34,211,238,0.1)";
-                            }}
-                            onMouseLeave={(e) => {
-                                e.currentTarget.style.borderColor = "#1e293b";
-                                e.currentTarget.style.boxShadow = "none";
-                            }}
                         >
                             <div
                                 className="text-2xl mb-3"
@@ -101,7 +90,7 @@ export default function About() {
                                     </li>
                                 ))}
                             </ul>
-                        </motion.div>
+                        </GlowCard>
                     ))}
                 </div>
             </div>
